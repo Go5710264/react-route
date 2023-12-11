@@ -1,4 +1,4 @@
-export const RECIPES : any = {
+export const RECIPES : unknown = {
     '1': {
         title: 'Торт Наполеон',
         description:'Почти французский торт'

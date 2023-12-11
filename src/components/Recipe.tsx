@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { RECIPES } from './data/recipes';
 import { useState, useEffect } from 'react'
 
-const fetch = (rId: any) : Promise<unknown> => {
+const fetch = (rId: unknown) : Promise<unknown> => {
     const recipeData = new Promise((resolve, reject) => {
 
         const recipe = Object.entries(RECIPES)
@@ -17,9 +17,9 @@ const fetch = (rId: any) : Promise<unknown> => {
 
     return recipeData;
 }
-const Recipe = () : any => {
-    const [recipe, setRecipe] = useState<any>(undefined);
-    const { rId }  = useParams<any>();
+const Recipe = () : unknown => {
+    const [recipe, setRecipe] = useState<unknown>(undefined);
+    const { rId }  = useParams<unknown>();
 
     useEffect(() => {
         fetch(rId)

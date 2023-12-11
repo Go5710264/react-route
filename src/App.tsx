@@ -1,16 +1,16 @@
-import { ReactElement } from 'react'
 import { NavLink, Route, Routes, Link } from 'react-router-dom'
 import List from './components/List'
 import './App.css'
 import NewRecipe from './components/NewRecipe'
 import Recipe from './components/Recipe'
+import { useSearchParams } from '../node_modules/react-router-dom/dist/index'
 
 // - / - Recipes list
 // - /recipes/new - Add new recipe
 // - /recipes/123 - Recipe's page
 // - /qwerasdf - 404 page
 
-const Header = () : ReactElement => {
+const Header = () : unknown => {
   return (
     <div className='header'>
       Recipes Heaven
@@ -22,13 +22,17 @@ const Header = () : ReactElement => {
   )
 }
 
-const Page404 = () : ReactElement => {
-  return <div>Страница не найдена. Перейти на <Link to='/'>главную страницу</Link>.</div>
+const Page404 = () : unknown => {
+  return (
+    <div>Страница не найдена. Перейти на <Link to='/'>главную страницу</Link>.</div>
+  )
 }
 
-// const Redirect = () : ReactElement => {
-  
-// }
+const Redirect = () : unknown => {
+  const [searchParams] = useSearchParams();
+  const rId = searchParams.get('id');
+  return console.log(rId)
+}
 
 function App() {
 
@@ -46,6 +50,10 @@ function App() {
           <Route 
             path='*'
             element={<Page404/>}
+          />
+          <Route
+            path='recipes.php'
+            element={<Redirect/>}
           />
 
         </Routes>
