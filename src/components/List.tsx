@@ -33,3 +33,5 @@ const List = () : ReactElement => {
         </>
     )
 }
+
+export default List;
