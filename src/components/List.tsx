@@ -17,20 +17,18 @@ const RECIPES = {
 
 const List = () : ReactElement => {
     return (
-        <>
-            <ul>
-                {Object
-                    .entries(RECIPES)
-                    .map(([rId, recipe], idx) => (
-                        <li key={rId}>
-                            <Link to={`/recipes/${rId}`}>
-                                {recipe.title}
-                            </Link>
-                        </li>
-                    ))
-                }
-            </ul>
-        </>
+        <ul>
+            {Object
+                .entries(RECIPES)
+                .map(([rId, recipe], idx) => (
+                    <li key={rId}>
+                        <Link to={`/recipes/${rId}`}>
+                            {recipe.title}
+                        </Link>
+                    </li>
+                ))
+            }
+        </ul>
     )
 }
 
