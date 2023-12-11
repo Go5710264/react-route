@@ -1,6 +1,6 @@
 import { ReactElement, useState } from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom'
-import { List } from './components/List'
+import List from './components/List'
 import './App.css'
 
 const Header = () : ReactElement => {
