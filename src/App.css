@@ -51,4 +51,29 @@
   text-align: left;
 }
 
+/*  */
+
+
+.new-recipe {
+}
+
+.new-recipe > * {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.new-recipe__label {
+  text-align: left;
+}
+.new-recipe__input {
+}
+.new-recipe__description {
+  margin-bottom: 0;
+}
+
+.list {
+}
+.list__item {
+  text-align: left;
+}
 

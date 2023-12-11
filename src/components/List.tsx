@@ -1,27 +1,13 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { RECIPES } from "./data/recipes";
 
-const RECIPES = {
-    '1': {
-        title: 'Торт Наполеон',
-    },
-    '2': {
-        title: 'Борщ',
-    },
-    '3': {
-        title: 'Пельмени',
-    },
-    '4': {
-        title: 'Картофельное пюре',
-    },
-}
-
-const List = () : ReactElement => {
+const List = () : JSX.Element => {
     return (
-        <ul>
+        <ul className='list'>
             {Object
-                .entries(RECIPES)
-                .map(([rId, recipe], idx) => (
-                    <li key={rId}>
+                .entries(RECIPES) // возвращает [key, value]
+                .map(([rId, recipe]: any) => (
+                    <li className='list__item' key={rId}>
                         <Link to={`/recipes/${rId}`}>
                             {recipe.title}
                         </Link>
