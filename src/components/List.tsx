@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { RECIPES } from "./data/recipes";
+import { RECIPES, TitleDescription } from "./data/recipes";
+ 
 
 const List = () : JSX.Element => {
     return (
         <ul className='list'>
             {Object
                 .entries(RECIPES) // возвращает [key, value]
-                .map(([rId, recipe]: any) => (
+                // типизация с помощью tuple (кортежей)
+                .map(([rId, recipe]: [string, TitleDescription]) => ( 
                     <li className='list__item' key={rId}>
                         <Link to={`/recipes/${rId}`}>
                             {recipe.title}

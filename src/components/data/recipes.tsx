@@ -1,4 +1,13 @@
-export const RECIPES : unknown = {
+export interface TitleDescription {
+    title: string;
+    description: string;
+}
+
+type Recipe = { // Mapped-type
+    [key: string]: TitleDescription
+}
+
+export const RECIPES : Recipe = {
     '1': {
         title: 'Торт Наполеон',
         description:'Почти французский торт'
@@ -11,7 +20,7 @@ export const RECIPES : unknown = {
         title: 'Пельмени',
         description:'Вкусные пельмени'
     },
-    '4': {
+    'qwerasdf': {
         title: 'Картофельное пюре',
         description:'Белорусское пюре'
     },
