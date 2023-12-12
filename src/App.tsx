@@ -23,7 +23,10 @@ const Header = () : JSX.Element => {
 
 const Page404 = () : JSX.Element => {
   return (
-    <div>Страница не найдена. Перейти на <Link to='/'>главную страницу</Link>.</div>
+    <>
+      <b>404</b>
+      <div>Страница не найдена. Перейти на <Link to='/'>главную страницу</Link>.</div>
+    </>
   )
 }
 
@@ -34,7 +37,7 @@ const Page404 = () : JSX.Element => {
  */
 
 const Redirect = (): JSX.Element => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const rId = searchParams.get('id');
   console.log(rId);
 
