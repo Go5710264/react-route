@@ -3,7 +3,7 @@ import { TitleDescription } from './data/recipes';
 import { RECIPES } from './data/recipes';
 import { useState, useEffect } from 'react'
 
-const fetch = (rId: string) : Promise<unknown> => {
+const fetch = (rId: string | undefined) : Promise<unknown> => {
     const recipeData = new Promise((resolve, reject) => {
 
         const recipe = Object.entries(RECIPES)
@@ -19,17 +19,16 @@ const fetch = (rId: string) : Promise<unknown> => {
 }
 
 type RecipeId = {
-    rId: string
+    rId?: string
 }
 
 const Recipe = () : JSX.Element => {
     const [recipe, setRecipe] = useState<TitleDescription | undefined>(undefined);
     const { rId }  : RecipeId  = useParams<string>();
-    console.log(rId, typeof rId)
 
     useEffect(() => {
         fetch(rId)
-            .then(data  => setRecipe(data))
+            .then((data: TitleDescription)  => setRecipe(data))
             .catch((e: string) : unknown  => {
                 console.log(e);
                 return setRecipe(undefined);
